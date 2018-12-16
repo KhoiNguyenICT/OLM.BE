@@ -7,11 +7,12 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}\\Program.ts",
-            "outFiles": [
-                "${workspaceFolder}/Build/**/*.js"
-            ]
+            "name": "Debug",
+            "args": ["${workspaceFolder}/src/Program.ts"],
+            "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector"
         }
     ]
 }

@@ -1,21 +1,24 @@
 ﻿import * as express from "express"
-import { RoleService } from "./Services/RoleService";
-import { RoleController } from "./Controllers/Role.Controller";
-import { MongoClient } from 'mongodb';
+import { RoleService } from "./Services/RoleService"
+import { RoleController } from "./Controllers/Role.Controller"
+import { MongoClient } from 'mongodb'
 import { environmentVariable } from "./Commons/Constants"
+import { Db } from 'mongodb'
 
-let router = express();
+let router = express()
 
 export class MainRoutes {
-    public router = express();
-    constructor() {
-        this.buildMainRoutes();
+    private readonly database: Db
+    public router = express()
+    constructor(
+        database: Db
+    ) {
+        this.database = database
+        this.buildMainRoutes()
     }
 
     private async buildMainRoutes() {
-        const connection = await MongoClient.connect(process.env[environmentVariable.MONGO_CONNECTION], { useNewUrlParser: true });
-        const database = connection.db(process.env[environmentVariable.DATABASE_NAME]);
-        this.router.post('/role', new RoleController(database).create);
+        this.router.post('/role', new RoleController(this.database).create)
+        this.router.get('/role/list', new RoleController(this.database).list)
     }
 }
-

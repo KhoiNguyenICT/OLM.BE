@@ -1,5 +1,6 @@
 export const collectionName = {
-    Role: 'Role'
+    Role: 'Role',
+    Permission: 'Permission'
 }
 
 export const environmentVariable = {

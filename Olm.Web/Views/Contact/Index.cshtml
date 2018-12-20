@@ -1,0 +1,205 @@
+﻿@model ContactViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://uni.topica.vn/d-v2/css/slick.css" />
+    <link rel="stylesheet" href="http://uni.topica.vn/d-v2/css/slick-theme.css" />
+    <link rel="stylesheet" href="http://uni.topica.vn/d-v2/css/owl.carousel.css" />
+    <link rel="stylesheet" href="http://uni.topica.vn/d-v2/css/jquery.countdown.css" />
+    <link rel="stylesheet" href="http://uni.topica.vn/d-v2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="http://uni.topica.vn/d-v2/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="http://uni.topica.vn/d-v2/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="http://uni.topica.vn/d-v2/css/main.css" />
+    <link rel="shortcut icon" type="image/png" href="http://uni.topica.vn/img/favicon.ico" />
+    <script type="text/javascript" id="" src="http://front.adpia.vn/js/api.js"></script>
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/4699121.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <section class="tpc-area tpc-area-1" style="padding: 150px 0 150px">
+            <div class="container text-center">
+                <h4>HỌC LIÊN THÔNG, VĂN BẰNG 2, ĐẠI HỌC TRỰC TUYẾN</h4>
+                <h3 style="margin-top: 15px">CHỦ ĐỘNG THỜI GIAN & ĐỊA ĐIỂM</h3>
+                <h5 style="margin-top: 15px">Hãy dùng cách 30.000+ sinh viên đã chọn</h5>
+                <p class="text-center" style="margin-top: 35px">
+                    <a href="#" data-toggle="modal" data-target="#modal-register" class="sp-btn-02" id="0001">
+                        Đăng ký
+                        ngay
+                    </a>
+                </p>
+            </div>
+        </section>
+        <footer class="tpc-page-footer">
+            <div class="box box-footer editable" blockid="minisite2_footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="logo-white pull-left">
+                            <img src="http://uni.topica.vn/d-v2/img/201610/12/logo-uni-new.png" alt="">
+                        </div>
+                        <div class="hotline pull-right">
+                            <span>HOTLINE: <b>1800 6168</b></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul>
+                            <li>
+                                <h2>Trụ sở chính: Hà Nội</h2>
+
+                                <p>Tầng 3, Số 75, Phương Mai, Quận Đống Đa, Hà Nội</p>
+                            </li>
+                            <li>
+                                <h2>TP. Hồ Chí Minh</h2>
+
+                                <p>Tầng 2, 58/10 Thành Thái, Phường 12, Quận 10, Tp. Hồ Chí Minh</p>
+                            </li>
+                            <li style="display: none">
+                                <h2>Đà Nẵng</h2>
+
+                                <p>Tầng 3 - Tòa nhà 69 Quang Trung, Quận Hải Châu, Đà Nẵng</p>
+                            </li>
+                            <li>
+                                <h2>Singapore</h2>
+
+                                <p>1 Raffles Place #44-02,One Raffles Place,Tower One Singapore</p>
+                            </li>
+                            <li>
+                                <h2>Bangkok, Thái Lan</h2>
+
+                                <p>152 Chartered Square Building, Floor. 11 , Room<br />11-07, North Sathon, Silom.</p>
+                            </li>
+                            <li>
+                                <h2>Manila, Philippines</h2>
+
+                                <p>Level 5 Gateway Tower, General Roxas Avenue, General Aguinaldo Avenue</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="reserved ">
+                <div class="container">
+                    © 2016 All Rights Reserved By Topica Edtech Group
+                </div>
+            </div>
+        </footer>
+
+        <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="wrapper-form">
+                        <h3>
+                            Đăng nhập tài khoản
+                        </h3>
+                        <div class="social">
+                            <a href="javascript:;" class="btn btn-block btn-fb" id="btn-loginfb-popup" onclick="login_fb();">
+                                <span class="fa fa-facebook"></span>
+                                Đăng nhập bằng Facebook
+                            </a>
+                            <a href="javascript:;" class="btn btn-block btn-gg" id="btn-logingg-popup" onclick="login_gg();">
+                                <span class="fa fa-google"></span>
+                                Đăng nhập bằng Google
+                            </a>
+                        </div>
+                        <div class="btn-or">
+                            <p>Hoặc</p>
+                        </div>
+                        <form class="dynform" onclick="mixpanel.track('Login-Email');" id="login-form" method="POST">
+                            <input type="text" class="form-control" placeholder="Email / Số điện thoại bạn đã đăng ký">
+                        </form>
+                        <div class="row text-center">
+                            <button class="btn btn-register">Đăng Nhập</button>
+                            <p id="dk-ngay">
+                                Nếu chưa có tài khoản? <a href="javascript:;" onclick="show_hide_modal();"
+                                                          data-dismiss="modal" data-target="#modal-register" data-toggle="modal">Đăng ký ngay</a>
+                            </p>
+                            <!-- -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade tpc-modal-register" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div class="wrapper-form">
+                        <header>
+                            <h3>
+                                Đăng ký tư vấn
+                            </h3>
+                            <p>
+                                Đăng ký để nhận tư vấn miễn phí từ chuyên viên TVTS <br>Yêu cầu: Tốt nghiệp Tốt Nghiệp
+                                THPT Trở Lên
+                            </p>
+                        </header>
+                        <form class="dynform1" asp-controller="Contact" asp-action="CollectContact" method="post">
+                            <input type="text" asp-for="Fullname" class="form-control"placeholder="Họ và tên:" />
+                            <input type="text" asp-for="Email" class="form-control" placeholder="Email:" />
+                            <input type="date" asp-for="Wasborn" class="form-control" placeholder="Ngày tháng năm sinh:" />
+                            <input type="text" asp-for="PhoneNumber" class="form-control" placeholder="Số đện thoại liên hệ:" />
+                            <input type="text" asp-for="Address" class="form-control" placeholder="Địa chỉ:" />
+                            <input type="hidden" asp-for="UtmCampaign" value="@ViewBag.utmCampaign" hidden=""/>
+                            <input type="hidden" asp-for="UtmAdset" value="@ViewBag.utmAdset" />
+                            <input type="hidden" asp-for="UtmAds" value="@ViewBag.utmAds" />
+                            <input type="hidden" asp-for="UtmAgent" value="@ViewBag.utmAgent" />
+                            <input type="hidden" asp-for="UtmMedium" value="@ViewBag.utmMedium" />
+                            <input type="hidden" asp-for="UtmSource" value="@ViewBag.utmSource" />
+                            <input type="hidden" asp-for="UtmTeam" value="@ViewBag.utmTeam" />
+                            <input type="hidden" asp-for="Keyword" value="@ViewBag.keyword" />
+                            <input type="hidden" asp-for="AdsLink" value="@ViewBag.QueryString.ToString()" />
+                            <div class="row text-center">
+                                <button type="submit" class="btn btn-register olm-click" id="submit">
+                                    Đăng Ký <i class="fa fa-check"></i>
+                                </button>
+                                <p>Cần điền đầy đủ thông tin</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade bs-example-modal-lg " id="modalAbout" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg modal-larger">
+                <div class="modal-content">
+                    <div class="iframe">
+                        <iframe src="" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="http://uni.topica.vn/d-v2/js/jquery-2.1.4.js"></script>
+        <script type="text/javascript" src="http://uni.topica.vn/d-v2/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://uni.topica.vn/d-v2/js/slick.js"></script>
+        <script type="text/javascript" src="http://uni.topica.vn/d-v2/js/jquery.countdown.js"></script>
+        <script type="text/javascript" src="http://uni.topica.vn/d-v2/js/main.js"></script>
+        <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
+    </div>
+</body>
+</html>
+
+<form asp-controller="Contact" asp-action="CollectContact" method="post">
+    <label for="fullName">Họ và tên</label>
+    <input id="fullName" type="text" asp-for="Fullname" />
+    <label for="email">Email</label>
+    <input id="email" type="text" asp-for="Email" />
+    <label for="phonenumber">Phonenumber</label>
+    <input id="phonenumber" type="text" asp-for="PhoneNumber" />
+    <label for="wasBorn">Was born</label>
+    <input id="wasBorn" type="text" asp-for="Wasborn" />
+    
+    <button type="submit">Submit</button>
+</form>
